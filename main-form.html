@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<style>
+  #transact {
+    display: none;
+    border: solid red 2px;
+    width: 200px;
+  }
+
+  #alter {
+    display: none;
+    border: solid red 2px;
+    width: 200px;
+  }
+
+  #enter_pin{
+    display: none;
+  }
+
+</style>
+
+<form action="main.php">
+
+<label for="ucid">Enter UCID: </label>
+<input type="text" name="ucid" id="ucid" required placeholder="Enter UCID" autocomplete="off"><br><br>
+
+<label for="pwd">Enter Password: </label>
+<input type"text" name="password" id="pwd" required placeholder="Enter Password" autocomplete="off"><br><br>
+
+<label for="acct">Enter Account Number: </label>
+<input type="text" name="account" id="acct" placeholder="Enter Account Number" autocomplete="off"><br><br>
+
+<div id = "enter_pin">
+<label for="enterpin">Enter PIN: </label>
+<input type"text" name="pin" id="enterpin"><br><br>
+</div>
+
+
+<select name="choice" id="choice">
+  <option value="0">choose</option>
+  <option value="see">see</option>
+  <option value="transact">transact</option>
+  <option value="alter">alter</option>
+  <option value="clear">clear</option>
+</select>
+
+<div id="transact">
+  <label for="amt">Amount: </label>
+  <input type="text" name="amount" id="amt" placeholder="9999.99">
+</div>
+
+<div id="alter">
+
+  <label for="col">Column: </label>
+  <input type="text" name="col" id="col" placeholder="e or pass">
+
+  <br>
+
+  <label for="newe">New Email: </label>
+  <input type="text" name="newemail" id="newe" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$">
+
+  <br>
+
+  <label for="newpass">New Password: </label>
+  <input type="text" name="newpwd" id="newpass">
+
+</div>
+
+
+<button type="submit">Submit Query</button>
+
+</form>
+
+<script>
+var menu = document.getElementById("choice");
+var transact = document.getElementById("transact");
+
+
+menu.addEventListener("change", choice_f);
+
+function choice_f() {
+  var menu_val = menu.value; // value of selected element of menu
+  if (menu_val == "transact") {
+    transact.style.display = "block";
+  } else {
+    transact.style.display = "none";
+  }
+
+  if (menu_val == "alter") {
+    alter.style.display = "block";
+  } else {
+    alter.style.display = "none";
+  }
+
+
+}
+
+
+</script>
+
+</html>
